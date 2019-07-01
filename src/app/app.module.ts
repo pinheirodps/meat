@@ -3,6 +3,8 @@ import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core'
 import {HttpClientModule} from '@angular/common/http'
 import {PreloadAllModules, RouterModule} from '@angular/router'
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
+import locatePt from '@angular/common/locales/pt'
+registerLocaleData(locatePt, 'pt')
 
 import {ApplicationErrorHandler} from './app.error-handler'
 
@@ -22,6 +24,7 @@ import {OrderSummaryComponent} from "./order/order-summary/order-summary.compone
 import {SharedModule} from "./shared/shared.module";
 import { LoginComponent } from './security/login/login.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component'
+import {registerLocaleData} from "@angular/common"
 
 
 @NgModule({
@@ -47,7 +50,7 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'},
+  providers: [{provide: LOCALE_ID, useValue: 'pt'},
     {provide: ErrorHandler, useClass: ApplicationErrorHandler}],  bootstrap: [AppComponent]
 })
 export class AppModule { }
